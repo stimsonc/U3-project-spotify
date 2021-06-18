@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Show me a song similar to: {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <input type="text" name="track"
+               placeholder="Enter song" class="form-control"
+               value="{{ request.form['track'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}
