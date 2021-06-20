@@ -4,6 +4,10 @@ import pandas as pd
 import plotly.express as px
 from plotly import io
 
+# Nearest neighbors model
+# from joblib import load
+# nn = load('../nn.joblib')
+
 # Connect to spotify API
 spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
 
