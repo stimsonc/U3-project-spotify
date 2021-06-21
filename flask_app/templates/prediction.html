@@ -2,5 +2,9 @@
 
 {% block content %}
     <h2>{% block title %} If you like "{{ track }}" you might also like: {% endblock %}</h2>
-    <h2>"{{ pred }}" by **coming soon**</h2>
+    <h2>"{{ recommended['title'] }}" by {{ recommended['artist'] }}</h2>
+    <img src="{{ recommended['album_cover'] }}">
+    <a href="{{ recommended['url'] }}">
+            <h2>Listen to the song!</h2>
+    </a>
 {% endblock %}

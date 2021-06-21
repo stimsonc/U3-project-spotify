@@ -4,28 +4,8 @@ import pandas as pd
 import plotly.express as px
 from plotly import io
 
-# Nearest neighbors model
-# from joblib import load
-# nn = load('../nn.joblib')
-
 # Connect to spotify API
 spotify = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
-
-
-def recommendation(track_id):
-    """Takes track_id predicted by model,
-    returns data on the track"""
-    track_url = 'https://open.spotify.com/track/' + track_id
-    track = spotify.track('spotify:track:' + track_id)
-    title = track['album']['name']
-    artist = track['album']['artists'][0]['name']
-    album_cover = track['album']['images'][1]['url']
-    print(track)
-    print(artist)
-    print(title)
-    print(album_cover)
-
-recommendation('5Hz6aGrZZizNBoJ6kE6Rqi')
 
 
 def get_track(track):
@@ -45,6 +25,15 @@ def get_track(track):
     # Change loudness to scale
     track_features['loudness'] = (track_features['loudness']+60) / 65.376
     return track_features
+
+
+def track_options(track):
+    results = spotify.search(q='track:' + track, type='track')
+    tracks = results['tracks']['items']
+    print(tracks)
+
+track_options('Abbey Road')
+
 
 
 def radar_plot(track_features):
