@@ -1,14 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h4>{% block title %} Audio features of "{{ track_features['title'] }}" by {{ track_features['artist'] }} {% endblock %}</h4>
-    <h5> Danceability: {{ track_features['danceability'] }} </h5>
-    <h5> Energy: {{ track_features['energy'] }} </h5>
-    <h5> Loudness: {{ track_features['loudness'] }} </h5>
-    <h5> Speechiness: {{ track_features['speechiness'] }} </h5>
-    <h5> Acousticness: {{ track_features['acousticness'] }} </h5>
-    <h5> Instrumentalness: {{ track_features['instrumentalness'] }} </h5>
-    <h5> Liveness: {{ track_features['liveness'] }} </h5>
-    <h5> Valence: {{ track_features['valence'] }} </h5>
+    <a href="{{ track_features['url'] }}"><h2>{{ track_features['title'] }}</h2></a>
+        <h2>by {{ track_features['artist'] }}</h2>
     <hr>
 {% endblock %}

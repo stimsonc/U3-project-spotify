@@ -1,17 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{% block title %} Show me a song similar to: {% endblock %}</h1>
+<h1>{% block title %} Get similar tracks to specific or random song {% endblock %}</h1>
 
 <form method="post">
     <div class="form-group">
-        <input type="text" name="track"
-               placeholder="Enter song" class="form-control"
-               value="{{ request.form['track'] }}"></input>
+        <input type="text" name="track_id"
+               placeholder="Enter song ID" class="form-control"
+               value="{{ request.form['track_id'] }}"/>
     </div>
 
     <div class="form-group">
         <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Random</button>
     </div>
 </form>
+    <h2>Specific songs can be found in <a href="https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks?select=tracks.csv">this dataset</a>. (copy from the id column)</h2>
+    <h2> Try out some random song IDs: </h2>
+    {% for item in random_sample %}
+        <h2>{{ item }}</h2>
+    {% endfor %}
 {% endblock %}
