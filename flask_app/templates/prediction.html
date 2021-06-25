@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h2>{% block title %} If you like "{{ input_track['title'] }}" by {{ input_track['artist'] }} you might also like: {% endblock %}</h2>
+    <h3>{% block title %} If you like <a href="{{ input_track['url'] }}">{{ input_track['title'] }}</a> by {{ input_track['artist'] }} you might also like: {% endblock %}</h3>
+    <a><img src="{{ input_track['album_cover'] }}"></a>
+    <hr>
     {% for item in output_tracks %}
-        <a href="{{ item['url'] }}"><h2>{{ item['title'] }}</h2></a>
-        <h2>by {{ item['artist'] }}</h2>
+        <h4><a href="{{ item['url'] }}">{{ item['title'] }}</a> by {{ item['artist'] }}</h4>
+        <a><img src="{{ item['album_cover'] }}"></a>
     {% endfor %}
 {% endblock %}
