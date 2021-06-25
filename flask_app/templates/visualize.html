@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <a href="{{ track_features['url'] }}"><h2>{{ track_features['title'] }}</h2></a>
-        <h2>by {{ track_features['artist'] }}</h2>
+    <h2><a href="{{ track_features['url'] }}">{{ track_features['title'] }}</a> by {{ track_features['artist'] }}</h2>
+    <a><img src="{{ track_features['album_cover'] }}"></a>
     <hr>
 {% endblock %}
